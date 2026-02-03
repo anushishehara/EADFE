@@ -104,6 +104,14 @@ const getAllUsers = () => {
     return api.get<User[]>('/users');
 };
 
+const updateUser = (id: number, data: Partial<User>) => {
+    return api.put(`/users/${id}`, data);
+};
+
+const deleteUser = (id: number) => {
+    return api.delete(`/users/${id}`);
+};
+
 const LeaveService = {
     getAllLeaveTypes,
     createLeaveType,
@@ -116,6 +124,8 @@ const LeaveService = {
     cancelLeave,
     getAdminDashboardStats,
     getAllUsers,
+    updateUser,
+    deleteUser,
 };
 
 export default LeaveService;
